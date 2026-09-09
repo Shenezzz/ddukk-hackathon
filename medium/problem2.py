@@ -33,5 +33,15 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 """
 
 def findstring(s):
-    return s
-print(findstring("abcabcbb"))
+    sub=s[0]
+    left=0
+    maxx=0
+    for right in range(1,len(s)):
+        maxx=max(maxx,len(sub))
+        while(s[right] in sub):
+            left+=1
+            sub=sub[left:right+1]
+        sub+=s[right]
+    return maxx
+
+print(findstring("bbbbb"))
