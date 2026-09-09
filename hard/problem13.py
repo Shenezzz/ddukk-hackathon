@@ -32,13 +32,14 @@ def pred(s):
     stack = []
     valid_stack = []
     for i in range(len(s)):
-        # if s[i] == ")" and i == 0:
-        #     continue
-        # if s[i] ==")" and stack[]
+        if len(stack) == 0:
+            stack.append(s[i])
+            continue
+        if s[i] == ")" and stack[-1] == "(":
+            a = stack.pop()
+            valid_stack.append(a+s[i])
+            continue
+        stack.append(s[i])
+    return "".join(valid_stack)
         
-    
-    
-    
-        
-
-print(pred(")()())"))
+print(pred(""))
