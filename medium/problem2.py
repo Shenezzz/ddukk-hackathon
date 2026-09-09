@@ -33,5 +33,8 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 """
 
 def findstring(s):
-    return s
+    
+        
+    
+    
 print(findstring("abcabcbb"))
