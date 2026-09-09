@@ -23,9 +23,16 @@ Output: [0,0,9,0,0]
 
 def findProduct(nums):
     n = len(nums)
-    a = [0]*n
+    pref = [1]*n
+    suff=[1]*n
     for i in range(1,n):
-        a[i] = a[i] * nums[i]
+        pref[i] = pref[i-1] * nums[i-1]
+    for i in range(n-2,-1,-1):
+        suff[i]=suff[i+1]*nums[i+1]
+    result=[1]*n
+    for i in range(n):
+        result[i]=pref[i]*suff[i]
+    return result
         
         
-print(findProduct([1,2,3,4]))
+print(findProduct([-1,1,0,-3,3]))
